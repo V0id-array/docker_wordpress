@@ -68,8 +68,8 @@ Los servicios definidos en este archivo son `wordpress` y `db`
         - Por seguridad no se han añadido los credenciales de la base de datos, para introducir estos datos se ha creado un script donde se pide por pantalla al administrador introducirlos manualmente.
     - **`volumes`**:
         - **`db_data:/var/lib/mysql`**: Monta un volumen persistente para almacenar los datos de la base de datos, garantizando su persistencia.
-    
-    Alternativa 
+
+  ## Alternativa 
     
     Como alternativa en ambos contenedores se pueden cargar las variables de entorno con un fichero .env
     
@@ -83,7 +83,7 @@ Los servicios definidos en este archivo son `wordpress` y `db`
     ```
     
 
-Se ha decidido usar un script en bash para cargar las credenciales ya creo que es más seguro gestionar estos credenciales con un gestor de contraseñas e introducirlos manualmente. 
+He decidido usar un script en bash para cargar las credenciales ya creo que es más seguro gestionar estos credenciales con un gestor de contraseñas e introducirlos manualmente. 
 
 ## **Volúmenes**
 
