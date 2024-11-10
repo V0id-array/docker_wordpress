@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  wordpress:
+    restart: on-failure 
+    image: wordpress:latest
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress_data:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    restart: on-failure 
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  wordpress_data:
+  db_data:
