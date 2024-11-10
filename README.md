@@ -98,3 +98,34 @@ de datos. Esto es útil para entornos de desarrollo, pero se advierte que es muy
 Sino se empieza a preguntar al usuario los credenciales que quiere configurar en el servidor para luego exportarlos con `export` para luego ser leídos se leídos al ejecutar docker compose. 
 
 Por ultimo ejecuta **docker compose** para levantar el archivo `docker-compose.yml`
+
+```bash
+#!/bin/bash
+
+# Preguntar al usuario si quiere usar valores de prueba.
+read -p "¿Desea usar valores de prueba para todas las variables? (¡Muy inseguro!) (s/n): " USE_TEST_VALUES
+
+# Verificar la respuesta del usuario.
+if [[ "$USE_TEST_VALUES" == "s" || "$USE_TEST_VALUES" == "S" ]]; then
+    # Si el usuario opta por usar valores de prueba, asignar valores predeterminados a las variables.
+    DB_USER="test_user"  
+    DB_PASSWORD="test_password"  
+    ROOT_PASSWORD="test_root_password"  
+else
+    # Si el usuario no quiere usar valores de prueba, solicitar las credenciales manualmente.
+    read -p "Ingrese el nombre de usuario de la base de datos: " DB_USER  # Solicitar nombre de usuario.
+    read -sp "Ingrese la contraseña de la base de datos: " DB_PASSWORD  # Solicitar contraseña sin mostrarla en pantalla.
+    echo  # Imprimir una nueva línea para mejorar la legibilidad.
+    read -sp "Ingrese la contraseña de root para MySQL: " ROOT_PASSWORD  # Solicitar contraseña de root sin mostrarla en pantalla.
+    echo  
+fi
+
+# Exportar las variables para que Docker Compose pueda usarlas en su archivo de configuración.
+export DB_USER 
+export DB_PASSWORD  
+export ROOT_PASSWORD  
+
+# Ejecutar Docker Compose en segundo plano, levantando los servicios definidos en el archivo docker-compose.yml.
+docker-compose up -d
+
+```
