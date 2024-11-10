@@ -1,5 +1,4 @@
-# docker_wordpress
-
+# Desplegando Wordpress con Docker Compose
 Se ha creado un despliegue de wordpress con docker compose para ello se ha usado un archivo docker-compose.yml con la siguiente configuración:
 
 ```yaml
