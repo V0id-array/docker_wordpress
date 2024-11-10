@@ -71,9 +71,9 @@ Los servicios definidos en este archivo son `wordpress` y `db`
 
   ## Alternativa 
     
-    Como alternativa en ambos contenedores se pueden cargar las variables de entorno con un fichero .env
+  Como alternativa en ambos contenedores se pueden cargar las variables de entorno con un fichero .env
     
-    Ejemplo con la base de datos:
+  Ejemplo con la base de datos:
     
     ```
     db:
