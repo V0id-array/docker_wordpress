@@ -95,7 +95,7 @@ El script comienza preguntando al usuario si desea utilizar valores
 predeterminados (de prueba) para las variables relacionadas con la base 
 de datos. Esto es útil para entornos de desarrollo, pero se advierte que es muy inseguro.
 
-Sino se empieza a preguntar al usuario los credenciales que quiere configurar en el servidor para luego exportarlos con `export` para luego ser leídos al ejecutar docker compose. 
+Sino se empieza a preguntar al usuario los credenciales que quiere configurar en el servidor para luego exportarlos con `export` ser leídos al ejecutar docker compose. 
 
 Por ultimo ejecuta **docker compose** para levantar el archivo `docker-compose.yml`
 
